@@ -1,5 +1,6 @@
 <div *ngIf="card">
   <h2>{{ card.name }}</h2>
+  <img [src]="card.picture_url" alt="{{ card.name }}" width="200" *ngIf="card.picture_url"><br>
   <p>ID: {{ card.id }}</p>
   <p>Type: {{ card.type }}</p>
   <p>Rarity: {{ card.rarity }}</p>

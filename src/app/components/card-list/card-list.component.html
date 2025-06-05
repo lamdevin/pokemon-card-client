@@ -3,6 +3,7 @@
 
 <ul>
   <li *ngFor="let card of cards">
+    <img [src]="card.picture_url" alt="{{ card.name }}" width="100" *ngIf="card.picture_url"><br>
     <strong>{{ card.name }}</strong> ({{ card.type }}, HP: {{ card.hp }}, {{ card.rarity }})
     <button [routerLink]="['/card', card.id]">View</button>
     <button [routerLink]="['/edit', card.id]">Edit</button>
