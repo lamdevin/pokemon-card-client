@@ -1,1 +1,11 @@
-<p>card-list works!</p>
+<h2>Pokemon Cards</h2>
+<button routerLink="/add">➕ Add Card</button>
+
+<ul>
+  <li *ngFor="let card of cards">
+    <strong>{{ card.name }}</strong> ({{ card.type }}, HP: {{ card.hp }}, {{ card.rarity }})
+    <button [routerLink]="['/card', card.id]">View</button>
+    <button [routerLink]="['/edit', card.id]">Edit</button>
+    <button (click)="deleteCard(card.id!)">Delete</button>
+  </li>
+</ul>
