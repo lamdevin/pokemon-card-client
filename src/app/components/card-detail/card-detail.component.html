@@ -1,1 +1,9 @@
-<p>card-detail works!</p>
+<div *ngIf="card">
+  <h2>{{ card.name }}</h2>
+  <p>ID: {{ card.id }}</p>
+  <p>Type: {{ card.type }}</p>
+  <p>Rarity: {{ card.rarity }}</p>
+  <p>Picture URL: {{ card.picture_url }}</p>
+  <p>HP: {{ card.hp }}</p>
+  <button routerLink="/">Back</button>
+</div>
