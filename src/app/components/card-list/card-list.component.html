@@ -7,14 +7,24 @@
 
   <div *ngIf="cards.length > 0">
     <button class="btn btn-default" routerLink="/add">➕ Add Card</button>
-    <ul>
-      <li *ngFor="let card of cards">
-        <img [src]="card.picture_url" alt="{{ card.name }}" width="100" *ngIf="card.picture_url" (error)="card.picture_url = 'assets/not_found.png'"><br>
-        <strong>{{ card.name }}</strong> ({{ card.type }}, HP: {{ card.hp }}, {{ card.rarity }})<br>
-        <button [routerLink]="['/card', card.id]">View</button>
-        <button [routerLink]="['/edit', card.id]">Edit</button>
-        <button (click)="deleteCard(card.id!)">Delete</button>
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let card of cards">
+        <div class ="card h-100">
+          <img class="card-img-top" [src]="card.picture_url" alt="{{ card.name }}" (error)="card.picture_url = 'assets/not_found.png'"><br>
+          
+          <div class="card-body text-center">
+            <h3 class="card-title">{{ card.name }}</h3> 
+            <p class="card-text">Type: {{ card.type }}<br> HP: {{ card.hp }}<br> Rarity: {{ card.rarity }}</p>
+          </div>
+
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-default" [routerLink]="['/card', card.id]">View</button>
+            <button class="btn btn-default" [routerLink]="['/edit', card.id]">Edit</button>
+            <button class="btn btn-default" (click)="deleteCard(card.id!)">Delete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
