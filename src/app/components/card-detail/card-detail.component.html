@@ -1,10 +1,10 @@
-<div *ngIf="card">
-  <h2>{{ card.name }}</h2>
+<div class="p-3 text-center" *ngIf="card">
+  <h2 class="h2">{{ card.name }}</h2>
   <img [src]="card.picture_url" alt="{{ card.name }}" width="200" *ngIf="card.picture_url"><br>
   <p>ID: {{ card.id }}</p>
   <p>Type: {{ card.type }}</p>
   <p>Rarity: {{ card.rarity }}</p>
   <p>Picture URL: {{ card.picture_url }}</p>
   <p>HP: {{ card.hp }}</p>
-  <button routerLink="/">Back</button>
+  <button class="btn btn-default border" routerLink="/">Back</button>
 </div>
