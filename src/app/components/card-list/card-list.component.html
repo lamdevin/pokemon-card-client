@@ -17,10 +17,10 @@
             <p class="card-text">Type: {{ card.type }}<br> HP: {{ card.hp }}<br> Rarity: {{ card.rarity }}</p>
           </div>
 
-          <div class="card-footer d-flex justify-content-between">
+          <div class="card-footer d-flex gap-1 justify-content-between">
             <button class="btn btn-default" [routerLink]="['/card', card.id]">View</button>
             <button class="btn btn-default" [routerLink]="['/edit', card.id]">Edit</button>
-            <button class="btn btn-default" (click)="deleteCard(card.id!)">Delete</button>
+            <button class="btn btn-danger" (click)="deleteCard(card.id!)">Delete</button>
           </div>
 
         </div>
