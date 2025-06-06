@@ -1,16 +1,20 @@
-<h2>Pokemon Cards</h2>
+<div class="jumbotron">
+  <h1 class="h1 p-3 text-center bg-primary text-white">Pokemon Cards</h1>
+</div>
 
-<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+<div class="container">
+  <p class="text-center" *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
 
-<span *ngIf="cards.length > 0">
-  <button routerLink="/add">➕ Add Card</button>
-  <ul>
-    <li *ngFor="let card of cards">
-      <img [src]="card.picture_url" alt="{{ card.name }}" width="100" *ngIf="card.picture_url" (error)="card.picture_url = 'assets/not_found.png'"><br>
-      <strong>{{ card.name }}</strong> ({{ card.type }}, HP: {{ card.hp }}, {{ card.rarity }})<br>
-      <button [routerLink]="['/card', card.id]">View</button>
-      <button [routerLink]="['/edit', card.id]">Edit</button>
-      <button (click)="deleteCard(card.id!)">Delete</button>
-    </li>
-  </ul>
-</span>
+  <div *ngIf="cards.length > 0">
+    <button class="btn btn-default" routerLink="/add">➕ Add Card</button>
+    <ul>
+      <li *ngFor="let card of cards">
+        <img [src]="card.picture_url" alt="{{ card.name }}" width="100" *ngIf="card.picture_url" (error)="card.picture_url = 'assets/not_found.png'"><br>
+        <strong>{{ card.name }}</strong> ({{ card.type }}, HP: {{ card.hp }}, {{ card.rarity }})<br>
+        <button [routerLink]="['/card', card.id]">View</button>
+        <button [routerLink]="['/edit', card.id]">Edit</button>
+        <button (click)="deleteCard(card.id!)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
