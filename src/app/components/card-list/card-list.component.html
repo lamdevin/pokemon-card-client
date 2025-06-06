@@ -1,10 +1,12 @@
 <h2>Pokemon Cards</h2>
 <button routerLink="/add">➕ Add Card</button>
 
-<ul>
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+
+<ul *ngIf="cards.length > 0">
   <li *ngFor="let card of cards">
     <img [src]="card.picture_url" alt="{{ card.name }}" width="100" *ngIf="card.picture_url"><br>
-    <strong>{{ card.name }}</strong> ({{ card.type }}, HP: {{ card.hp }}, {{ card.rarity }})
+    <strong>{{ card.name }}</strong> ({{ card.type }}, HP: {{ card.hp }}, {{ card.rarity }})<br>
     <button [routerLink]="['/card', card.id]">View</button>
     <button [routerLink]="['/edit', card.id]">Edit</button>
     <button (click)="deleteCard(card.id!)">Delete</button>
