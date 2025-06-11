@@ -1,13 +1,30 @@
-<h2>{{ isEdit ? 'Edit' : 'Add' }} Card</h2>
+<div class="container p-3 text-center">
+  <h2 class="h2">{{ isEdit ? 'Edit' : 'Add' }} Card</h2>
 
-<form (ngSubmit)="onSubmit()">
-  <label>Name: <input [(ngModel)]="card.name" name="name"></label><br>
-  <label>Type: <input [(ngModel)]="card.type" name="type"></label><br>
-  <label>Rarity: <input type="number" [(ngModel)]="card.rarity" name="rarity"></label><br>
-  <label>Picture URL: <input type="url" [(ngModel)]="card.picture_url" name="picture_url"></label><br>
-  <label>HP: <input type="number" [(ngModel)]="card.hp" name="hp"></label><br>
-  
-
-  <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
-  <button type="button" routerLink="/">Cancel</button>
-</form>
+  <form class="form-horizontal" (ngSubmit)="onSubmit()">
+    <div class="form-group p-2">
+      <label class="control-label col-sm-2">Name:</label>
+      <input class="form-control" [(ngModel)]="card.name" name="name">
+    </div>
+    <div class="form-group p-2">
+      <label class="control-label col-sm-2">Type: </label>
+      <input class="form-control" [(ngModel)]="card.type" name="type">
+    </div>
+    <div class="form-group p-2">
+      <label class="control-label col-sm-2">Rarity: </label>
+      <input class="form-control" type="number" [(ngModel)]="card.rarity" name="rarity">
+    </div>
+    <div class="form-group p-2">
+      <label class="control-label col-sm-2">Picture URL: </label>
+      <input class="form-control" type="url" [(ngModel)]="card.picture_url" name="picture_url">
+    </div>
+    <div class="form-group p-2">
+      <label class="control-label col-sm-2">HP: </label>
+      <input class="form-control" type="number" [(ngModel)]="card.hp" name="hp">
+    </div>
+    <div class="form-group p-2">
+        <button class="btn btn-primary border" type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
+        <button class="btn btn-default border" routerLink="/">Cancel</button>
+    </div>
+  </form>
+</div>
