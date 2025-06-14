@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --configuration production --base-href /pokemon-card-client/ && npx angular-cli-ghpages --dir=dist/pokemon-card-client"
   },
   "private": true,
   "dependencies": {
