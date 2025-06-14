@@ -6,8 +6,13 @@
   <button class="btn btn-default" *ngIf="loading == false && error == false" routerLink="/add">➕ Add Card</button>
   <p class="text-center" *ngIf="loading == false && error == false && cards.length == 0">No cards found!</p>
   <p class="text-center" *ngIf="error" style="color: red;">{{ errorMessage }}</p>
+  
+  <div *ngIf="loading" class="text-center loading-screen">
+    <p>Loading cards, please wait...<br>Server may take a minute to wake up</p>
+    <div class="spinner"></div>
+  </div>
 
-  <div *ngIf="cards.length > 0">
+  <div *ngIf="!loading && cards.length > 0">
     <div class="row">
       <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let card of cards">
         <div class ="card h-100">
