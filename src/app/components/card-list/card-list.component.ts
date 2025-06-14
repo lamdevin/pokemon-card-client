@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
+  loading = true;
+  error = false;
   cards: Card[] = [];
   errorMessage: string = '';
 
@@ -22,13 +24,13 @@ export class CardListComponent implements OnInit {
     this.cardService.getCards().subscribe({
       next: (data) => {
         this.cards = data;
-        if (this.cards.length === 0) {
-          this.errorMessage = 'No cards found.';
-        }
+        this.loading = false;
       },
       error: (err) => {
         console.error('Error loading cards:', err);
+        this.error = true;
         this.errorMessage = 'Could not load cards. Error contacting server.';
+        this.loading = false;
       }
     });
   }

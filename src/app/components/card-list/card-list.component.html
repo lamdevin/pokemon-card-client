@@ -3,8 +3,9 @@
 </div>
 
 <div class="container">
-  <button class="btn btn-default" routerLink="/add">➕ Add Card</button>
-  <p class="text-center" *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+  <button class="btn btn-default" *ngIf="loading == false && error == false" routerLink="/add">➕ Add Card</button>
+  <p class="text-center" *ngIf="loading == false && error == false && cards.length == 0">No cards found!</p>
+  <p class="text-center" *ngIf="error" style="color: red;">{{ errorMessage }}</p>
 
   <div *ngIf="cards.length > 0">
     <div class="row">
