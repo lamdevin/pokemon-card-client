@@ -31,4 +31,9 @@ export class CardService {
   deleteCard(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  resetCards(): Observable<any> {
+  return this.http.post(`${this.apiUrl}/reset`, null, {responseType: 'text'});
+}
+
 }

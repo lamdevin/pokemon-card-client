@@ -37,6 +37,19 @@ export class CardListComponent implements OnInit {
     });
   }
 
+  resetToDefaults(): void {
+  this.cardService.resetCards().subscribe({
+    next: () => {
+      this.loadCards();
+      alert("Reset to default card list.");
+    },
+    error: () => {
+      alert("Error resetting card list.");
+    }
+  });
+}
+
+
   deleteCard(id: number) {
     this.cardService.deleteCard(id).subscribe(() => this.loadCards());
   }
