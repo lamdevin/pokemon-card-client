@@ -23,8 +23,9 @@
       <input class="form-control" type="number" [(ngModel)]="card.hp" name="hp">
     </div>
     <div class="form-group p-2">
-        <button class="btn btn-primary border" type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
+        <button class="btn btn-primary border" type="submit" [disabled]="readOnly">{{ isEdit ? 'Update' : 'Add' }}</button>
         <button class="btn btn-default border" type="button" routerLink="/">Cancel</button>
     </div>
+    <div *ngIf="readOnly" class="text-center p-3">(Demo Mode: Editing is disabled)</div>
   </form>
 </div>

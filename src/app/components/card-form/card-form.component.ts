@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CardService } from '../../services/card-service';
 import { Card } from '../../models/card';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-card-form',
@@ -10,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CardFormComponent implements OnInit {
   card: Card = { name: '', type: '', rarity: 0, picture_url: '', hp: 0 };
   isEdit = false;
+  readOnly = environment.demoMode;
 
   constructor(
     private cardService: CardService,

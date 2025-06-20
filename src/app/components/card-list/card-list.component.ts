@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CardService } from '../../services/card-service';
 import { Card } from '../../models/card';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-card-list',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class CardListComponent implements OnInit {
   loading = true;
   error = false;
+  readOnly = environment.demoMode;
   cards: Card[] = [];
   errorMessage: string = '';
 
